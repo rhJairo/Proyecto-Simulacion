@@ -5,7 +5,7 @@ using UnityEngine;
 public class VRWalk : MonoBehaviour
 {
     public Transform vrCamera;
-    public float toggleAngle = 20.0f;
+    public float toggleAngle = 6.0f;
     public float speed = 3.0f;
     public bool moveForward;
 

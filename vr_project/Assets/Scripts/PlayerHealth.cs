@@ -10,11 +10,14 @@ public class PlayerHealth : MonoBehaviour
 
     private Transform ui_healthBar;
 
+    
+
+
     void Start()
     {
         playerHealth = maxHealth;
         ui_healthBar = GameObject.Find("HUD/Health/bar_health").transform;
-
+        //UpdateHealthUI;
     }
 
     void Update()

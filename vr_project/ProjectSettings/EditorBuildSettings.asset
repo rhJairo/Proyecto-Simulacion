@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LluviaScene.unity
     guid: 33478807ee6efff4091282c23dc17ca2
+  - enabled: 1
+    path: Assets/Scenes/AcosoScene.unity
+    guid: bd56e0943a0ab75458812582e0c50576
   m_configObjects: {}

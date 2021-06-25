@@ -9,9 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public float dmgMod = 1.0f;
 
     private Transform ui_healthBar;
-
-    
-
+    private GameObject rain;
+    private GameObject[] rains;
 
     void Start()
     {
@@ -27,21 +26,46 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnTriggerStay (Collider c)
     {
-        if (c.gameObject.tag == "Rain" && playerHealth > 0)
-        {
-            playerHealth -= dmgMod * Time.deltaTime;
-            UpdateHealthUI();
-        }
-        else if (c.gameObject.tag == "SafeZone" && playerHealth < 100.0f)
+     
+        if (c.gameObject.tag == "SafeZone" && playerHealth < 100.0f)
         {
             playerHealth += dmgMod * Time.deltaTime;
             UpdateHealthUI();
         }
         else
         {
-            playerHealth = maxHealth;
+            playerHealth -= dmgMod * Time.deltaTime;
+            UpdateHealthUI();
         }
     }
+
+    public void OnTriggerEnter(Collider c)
+    {
+        rains = GameObject.FindGameObjectsWithTag("Rain");
+
+        if (c.gameObject.tag == "SafeZone")
+        {
+            foreach (GameObject rain in rains)
+            {
+                rain.GetComponent<Collider>().enabled = false;
+            }
+        }
+    }
+
+    public void OnTriggerExit(Collider c)
+    {
+        rains = GameObject.FindGameObjectsWithTag("Rain");
+
+        if (c.gameObject.tag == "SafeZone")
+        {
+            foreach (GameObject rain in rains)
+            {
+                rain.GetComponent<Collider>().enabled = true;
+            }
+        }
+    }
+        
+        
 
     void UpdateHealthUI()
     {

@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9435e304d89e53815bd7c3ee7191951d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Win_Panel: {fileID: 0}
+  Win_Panel: {fileID: 1436435811}
 --- !u!65 &78624784
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12640,6 +12640,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 7618623170014926168, guid: 01c9527886729854999f29c8ca272ca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7618623170014926169, guid: 01c9527886729854999f29c8ca272ca2,
         type: 3}
       propertyPath: speed
@@ -12653,7 +12658,7 @@ PrefabInstance:
     - target: {fileID: 7618623170014926175, guid: 01c9527886729854999f29c8ca272ca2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90.1
+      value: 205.3
       objectReference: {fileID: 0}
     - target: {fileID: 7618623170014926175, guid: 01c9527886729854999f29c8ca272ca2,
         type: 3}
@@ -12663,7 +12668,7 @@ PrefabInstance:
     - target: {fileID: 7618623170014926175, guid: 01c9527886729854999f29c8ca272ca2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.97
+      value: 82.4
       objectReference: {fileID: 0}
     - target: {fileID: 7618623170014926175, guid: 01c9527886729854999f29c8ca272ca2,
         type: 3}

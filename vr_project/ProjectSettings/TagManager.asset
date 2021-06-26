@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rain
   - SafeZone
+  - Win_tag
   layers:
   - Default
   - TransparentFX

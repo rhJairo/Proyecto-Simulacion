@@ -12,6 +12,10 @@ public class PlayerHealth : MonoBehaviour
     private GameObject rain;
     private GameObject[] rains;
 
+    //experimental
+    public static bool gameOver;
+    public GameObject GameOverPanel;
+    
     void Start()
     {
         playerHealth = maxHealth;
@@ -71,5 +75,10 @@ public class PlayerHealth : MonoBehaviour
     {
         float health_ratio = playerHealth / maxHealth;
         ui_healthBar.localScale = new Vector3(health_ratio, 1, 1);
+        if (health_ratio <= 0.0f)
+        {
+            //gameOver = True;
+            GameOverPanel.SetActive(true);
+        }
     }
 }

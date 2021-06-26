@@ -6,27 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        public float targetTime = 5.0f;
-        GameObject go_FPCamera = GameObject.Find("FPCamera");
-        PlayerScript playerScript = thePlayer.GetComponent<PlayerHealth>();
-
-    }
-
-    // Update is called once per frame
+    float targetTime = 5.0f;
     void Update()
     {
-        if (playerScript.playerHealth == 0)
+        targetTime -= Time.deltaTime;
+        if (targetTime < 0.0f)
         {
-
-            gameObject.SetActive(true);
-            targetTime -= Time.deltaTime;
-            if (targetTime <= 0.0f)
-            {
-                SceneManager.LoadScene("MainMenu");
-            }
+            SceneManager.LoadScene("MainMenu");
         }
-    }
+    }    
 }

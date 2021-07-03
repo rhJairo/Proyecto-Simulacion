@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private Transform ui_healthBar;
     private GameObject rain;
     private GameObject[] rains;
+    
 
     //experimental
     public static bool gameOver;
@@ -53,8 +54,21 @@ public class PlayerHealth : MonoBehaviour
             {
                 rain.GetComponent<Collider>().enabled = false;
             }
+            if (c.CompareTag("Puddle"))
+            {
+                dmgMod = 10.0f;
+                tartCoroutine(tempPowerDown());
+            }
         }
     }
+
+    IEnumerator tempPowerDown()
+    {
+        yield return new WaitForSeconds(1);
+        dmgMod = 1.0f;
+    }
+  
+
 
     public void OnTriggerExit(Collider c)
     {

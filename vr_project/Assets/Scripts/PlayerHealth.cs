@@ -58,9 +58,15 @@ public class PlayerHealth : MonoBehaviour
             }
             
         }
-      
-    }
+        if (c.CompareTag("Puddle"))
+        {
 
+
+            StartCoroutine(tempPowerDown(c));
+        }
+
+    }
+/*
     public void OnTriggerEnter1(Collider Puddle)
     {
         if (Puddle.CompareTag("Puddle"))
@@ -69,17 +75,17 @@ public class PlayerHealth : MonoBehaviour
 
             StartCoroutine(tempPowerDown(Puddle));
         }
-    }
+    }*/
 
-    IEnumerator tempPowerDown(Collider Puddle)
+    IEnumerator tempPowerDown(Collider c)
     {
         foreach (GameObject rain in rains)
         {
             rain.GetComponent<Collider>().enabled = false;
         }
-        playerHealth -= 0.10f * Time.deltaTime;
-        yield return new WaitForSeconds(10);
-        dmgMod = 1.0f;
+        playerHealth -= 20;
+        yield return new WaitForSeconds(1);
+        //dmgMod = 1.0f;
        
     }
   

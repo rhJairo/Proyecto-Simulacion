@@ -24,6 +24,8 @@ public class PlayerHealth : MonoBehaviour
         //UpdateHealthUI;
     }
 
+    
+
     void Update()
     {
         
@@ -54,18 +56,31 @@ public class PlayerHealth : MonoBehaviour
             {
                 rain.GetComponent<Collider>().enabled = false;
             }
-            if (c.CompareTag("Puddle"))
-            {
-                dmgMod = 10.0f;
-                tartCoroutine(tempPowerDown());
-            }
+            
+        }
+      
+    }
+
+    public void OnTriggerEnter1(Collider Puddle)
+    {
+        if (Puddle.CompareTag("Puddle"))
+        {
+            
+
+            StartCoroutine(tempPowerDown(Puddle));
         }
     }
 
-    IEnumerator tempPowerDown()
+    IEnumerator tempPowerDown(Collider Puddle)
     {
-        yield return new WaitForSeconds(1);
+        foreach (GameObject rain in rains)
+        {
+            rain.GetComponent<Collider>().enabled = false;
+        }
+        playerHealth -= 0.10f * Time.deltaTime;
+        yield return new WaitForSeconds(10);
         dmgMod = 1.0f;
+       
     }
   
 

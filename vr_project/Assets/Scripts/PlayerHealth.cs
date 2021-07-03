@@ -60,35 +60,11 @@ public class PlayerHealth : MonoBehaviour
         }
         if (c.CompareTag("Puddle"))
         {
+            playerHealth -= 5;
 
-
-            StartCoroutine(tempPowerDown(c));
         }
 
     }
-/*
-    public void OnTriggerEnter1(Collider Puddle)
-    {
-        if (Puddle.CompareTag("Puddle"))
-        {
-            
-
-            StartCoroutine(tempPowerDown(Puddle));
-        }
-    }*/
-
-    IEnumerator tempPowerDown(Collider c)
-    {
-        foreach (GameObject rain in rains)
-        {
-            rain.GetComponent<Collider>().enabled = false;
-        }
-        playerHealth -= 20;
-        yield return new WaitForSeconds(1);
-        //dmgMod = 1.0f;
-       
-    }
-  
 
 
     public void OnTriggerExit(Collider c)
